@@ -22,9 +22,12 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         myTableView.delegate = self
         
     }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
+     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let indentifier = "RE"
@@ -37,6 +40,26 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         cell.imageView?.image = myImg
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        print("section = \(indexPath.section)row = \(indexPath.row)")
+        let myAlert = UIAlertController(title: "Date", message: "Text", preferredStyle: .alert)
+        //세번째 인자를 클로져 사용
+        //후행 클로져(Trailing Closure)
+        let okAction = UIAlertAction(title: "확인", style: .default){ (action: UIAlertAction) -> Void in
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: { (action: UIAlertAction) -> Void in })
+        
+        let testAction = UIAlertAction(title: "Section Row Seclected", style: .default, handler: nil)
+        
+        myAlert.addAction(testAction)
+        myAlert.addAction(okAction)
+        myAlert.addAction(cancelAction)
+        
+        present(myAlert, animated: true, completion: nil)
     }
     
 
