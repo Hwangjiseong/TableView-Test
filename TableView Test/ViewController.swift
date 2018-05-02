@@ -24,6 +24,20 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "1st section"
+        } else{
+            return "2nd section"
+        }
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -62,7 +76,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         present(myAlert, animated: true, completion: nil)
     }
     
-
-
+    //row의 height 조절
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+    
+    
 }
+
+
+
 
